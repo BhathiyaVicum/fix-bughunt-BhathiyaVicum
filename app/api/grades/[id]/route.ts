@@ -35,7 +35,7 @@ export async function PUT(req: NextRequest, ctx: { params: Promise<{ id: string 
 
     await connectDB()
     const grade = await Grade.findOneAndUpdate(
-      { _id: id },
+      { _id: id, teacherId: userId },
       sanitizedBody,
       { new: true }
     )
